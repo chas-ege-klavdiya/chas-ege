@@ -6,9 +6,10 @@
 		let preference = ['sameColors', 'diffColors'];
 		let targetColor = getSelectedPreferenceFromList(key, preference);
 		
-        let color1 = sl(10, 40, 2);
-        let color2 = sl(10, 30, 2);
-        let total = color1 + color2;
+        // После первого извлечения остаётся total - 1 предметов; делитель 1000 даёт ответ с не более чем тремя знаками
+        let total = [20, 25, 40, 50].iz() + 1;
+        let color1 = sl(Math.max(10, total - 30), Math.min(40, total - 10));
+        let color2 = total - color1;
 
         let probability = [color1 - 1, color2][targetColor] / (total - 1);
         let colorSecond = ['тоже',''][targetColor];
